@@ -1,0 +1,35 @@
+CommitMsg:
+  CapitalizedSubject:
+    enabled: false
+
+PreCommit:
+  ALL:
+    exclude:
+      - vendor/**/*
+      - app/assets/fonts/**/*
+      - tmp/**/*
+      - log/**/*
+      - bin/**/*
+      - db/migrate
+
+  HardTabs:
+    enabled: true
+    exclude:
+      - vendor/**/*
+      - app/assets/fonts/**/*
+      - tmp/**/*
+      - log/**/*
+      - bin/**/*
+
+  TrailingWhitespace:
+    enabled: true
+    exclude:
+      - vendor/**/*
+      - app/assets/fonts/**/*
+      - tmp/**/*
+      - log/**/*
+      - bin/**/*
+      - import/**/*
+
+  RuboCop:
+    enabled: true

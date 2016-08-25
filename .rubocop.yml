@@ -1,0 +1,39 @@
+AllCops:
+  Exclude:
+    - bin/**/*
+    - db/migrate/**/*
+    - db/schema.rb
+    - tmp/**/*
+    - vendor/**/*
+    - log/**/*
+    - lib/capistrano/**/*
+
+Rails:
+  Enabled: true
+
+# checks for missing top-level documentation of classes and modules.
+Documentation:
+  Enabled: false
+
+# Use nested module/class definitions instead of compact style.
+ClassAndModuleChildren:
+  Enabled: false
+
+# Prefer `has_many :through` to `has_and_belongs_to_many`.
+HasAndBelongsToMany:
+  Enabled: false
+
+Style/SignalException:
+  EnforcedStyle: only_raise
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 15
