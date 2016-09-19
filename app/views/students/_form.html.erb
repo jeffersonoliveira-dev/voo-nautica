@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-6">
+    <%= simple_form_for @student do |f| %>
+      <%= f.input :name %>
+      <%= f.input :date_birth %>
+      <%= f.input :rg %>
+      <%= f.input :cpf %>
+      <%= f.input :date_emission %>
+      <%= f.input :organ_emitter %>
+      <%= f.input :nationality %>
+      <%= f.input :civil_status %>
+      <%= f.input :father_name %>
+      <%= f.input :mother_name %>
+      <%= f.input :email %>
+      <%= f.input :profession %>
+      <%= f.input :scholarity %>
+      <%= f.input :vessel %>
+      <%= f.input :vessel_experience %>
+      <%= f.input :payment_type, collection: Student.payment_types.keys %>
+      <%= f.input :cnh %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
