@@ -5,12 +5,12 @@ default: &default
 
 development:
   <<: *default
-  database: database_development
+  database: nautica_dev
 
 test:
   <<: *default
-  database: database_development
+  database: nautica_test
 
 production:
   <<: *default
-  database: database_development
+  database: nautica_prod
