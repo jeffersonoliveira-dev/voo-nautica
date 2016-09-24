@@ -11,6 +11,10 @@
  * file per style scope.
  *
  *= require bootstrap.min
+ *= require font-awesome
+ *= require mvpready-landing-pom
+ *= require mvpready-flat
+ *= require animate
  *= require_tree .
  *= require_self
  */
