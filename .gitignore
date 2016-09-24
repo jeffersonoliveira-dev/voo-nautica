@@ -27,3 +27,5 @@ config/tenants.yml
 dump.rdb
 
 .ruby-version
+
+*DS_Store
