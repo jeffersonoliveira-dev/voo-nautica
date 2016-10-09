@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160828000932) do
+ActiveRecord::Schema.define(version: 20161005142035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20160828000932) do
 
   create_table "phones", force: :cascade do |t|
     t.string   "number"
-    t.string   "type"
+    t.integer  "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -72,11 +72,17 @@ ActiveRecord::Schema.define(version: 20160828000932) do
     t.boolean  "vessel"
     t.boolean  "vessel_experience"
     t.integer  "payment_type"
-    t.binary   "document_photo"
-    t.binary   "proof_of_address"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "cnh"
+    t.string   "document_photo_file_name"
+    t.string   "document_photo_content_type"
+    t.integer  "document_photo_file_size"
+    t.datetime "document_photo_updated_at"
+    t.string   "proof_of_address_file_name"
+    t.string   "proof_of_address_content_type"
+    t.integer  "proof_of_address_file_size"
+    t.datetime "proof_of_address_updated_at"
   end
 
 end

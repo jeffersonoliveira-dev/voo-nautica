@@ -1,24 +1,152 @@
-<div class="row">
-  <div class="col-md-6">
-    <%= simple_form_for @student do |f| %>
-      <%= f.input :name %>
-      <%= f.input :date_birth %>
-      <%= f.input :rg %>
-      <%= f.input :cpf %>
-      <%= f.input :date_emission %>
-      <%= f.input :organ_emitter %>
-      <%= f.input :nationality %>
-      <%= f.input :civil_status %>
-      <%= f.input :father_name %>
-      <%= f.input :mother_name %>
-      <%= f.input :email %>
-      <%= f.input :profession %>
-      <%= f.input :scholarity %>
-      <%= f.input :vessel %>
-      <%= f.input :vessel_experience %>
-      <%= f.input :payment_type, collection: Student.payment_types.keys %>
-      <%= f.input :cnh %>
-      <%= f.button :submit %>
-    <% end %>
-  </div>
+<div class="container">
+  <h1>Cadastro</h1>
+  <h2> Dados pessoais </h2>
+ <div class="row">
+
+<!-- Formulário para estudante -->
+
+     <%= simple_form_for @student do |f| %>
+     <div class="col-md-8">
+       <%= f.input :name, label: 'Nome:' %>
+     </div>
+     <div class="col-md-4">
+       <%= f.input :date_birth,
+       start_year: Date.today.year - 90,
+       order: [:day, :month, :year],
+       label: 'Data de nascimento:' %>
+     </div>
+     </div>
+       <%= f.input :email, label: 'Email:'%>
+       <div class="row">
+       <div class="col-md-4">
+       <%= f.input :rg, label: 'RG:' %>
+     </div>
+     <div class="col-md-4">
+       <%= f.input :date_emission,
+       start_year: Date.today.year - 90,
+       order: [:day, :month, :year],
+        label: 'Data de emissão:' %>
+     </div>
+     <div class="col-md-4">
+       <%= f.input :organ_emitter, label: 'Orgão emissor:' %>
+     </div>
+   </div>
+   <div class="row">
+     <div class="col-md-6">
+       <%= f.input :cpf, label: 'CPF:' %>
+     </div>
+     <div class="col-md-6">
+       <%= f.input :cnh, label: 'CNH:' %>
+     </div>
+     </div>
+     <div class="row">
+       <div class="col-md-6">
+       <%= f.input :nationality, label: 'Nacionalidade:' %>
+     </div>
+     <div class="col-md-6">
+       <%= f.input :civil_status, label: 'Estado civil:' %>
+     </div>
+     </div>
+     <%= f.input :father_name, label: 'Nome do Pai:'%>
+     <%= f.input :mother_name, label: 'Nome da Mãe:'%>
+     <div class="row">
+      <div class="col-md-6">
+     <%= f.input :scholarity, label: 'Escolaridade' %>
+   </div>
+   <div class="col-md-6">
+       <%= f.input :profession, label: 'Profissão:' %>
+     </div>
+     </div>
+
+<!-- formulário para o endereço -->
+
+     <h2> Endereço </h2>
+       <%= f.simple_fields_for :addresses do |a| %>
+        <%= a.input :street, label: 'Rua:' %>
+        <div class="row">
+          <div class="col-md-4">
+        <%= a.input :district, label: 'Bairro:' %>
+      </div>
+      <div class="col-md-4">
+        <%= a.input :city, label: 'Cidade:' %>
+      </div>
+      <div class="col-md-4">
+        <%= a.input :cep, label: 'CEP:' %>
+      </div>
+      </div>
+       <% end %>
+
+<!-- formulário para o telefone -->
+
+       <%= f.simple_fields_for :phones do |p| %>
+       <div class="row">
+       <div class="col-md-6">
+        <%= p.input :phone_type, collection: Phone.phone_types.keys,
+        label: 'Contato:'%>
+      </div>
+      <div class="col-md-6">
+        <%= p.input :number, label: 'Número:', placeholder: '(00)0000-0000' %>
+      </div>
+    </div>
+       <% end %>
+       <h2> Informação complementar </h2>
+       <%= f.input :vessel, label: 'Possui embarcação?' %>
+       <%= f.input :vessel_experience,
+       label: 'Possui expêriencia com navegação?'%>
+
+<!-- formulário para o curso -->
+
+       <h2>Selecione o curso desejado</h2>
+       <%= f.simple_fields_for :courses do |c| %>
+          <%= c.input :type, collection: Course.course_types.keys,
+          as: :radio_buttons, label: 'Selecione o curso desejado:' %>
+       <% end %>
+
+<!-- formulário para as datas de aula prática -->
+
+       <%= f.simple_fields_for :availabilities do |v| %>
+       <div class="row">
+         <div class="col-md-6">
+        <%= v.input :data1, as: :date,
+        order: [:day, :month, :year],
+        label: '1º:' %>
+      </div>
+      <div class="col-md-6">
+        <%= v.input :data2, as: :date,
+        order: [:day, :month, :year],
+        label: '2º:' %>
+      </div>
+      <div class="col-md-6">
+        <%= v.input :data3, as: :date,
+        order: [:day, :month, :year],
+        label: '3º:' %>
+      </div>
+      <div class="col-md-6">
+        <%= v.input :data4, as: :date,
+        order: [:day, :month, :year],
+        label: '4º' %>
+      </div>
+      </div>
+       <% end %>
+
+<!-- Continuação do formulário do estudante -->
+
+       <div class="row">
+       <div class="col-md-6">
+       <%= f.input :proof_of_address, as: :file,
+       label: 'Foto do comprovante de residência:' %>
+     </div>
+     <div class="col-md-6">
+       <%= f.input :document_photo, as: :file, label: 'Foto dos documentos:' %>
+     </div>
+     </div>
+       <%= f.input :payment_type, collection: Student.payment_types.keys,
+       label: 'Tipo de pagamento:' %>
+<!-- formulário de Referrer -->
+       <%= f.simple_fields_for :refferers do |r| %>
+          <%= r.input :type, collection: Referrer.referral_types.keys,
+          as: :check_boxes, label: 'Indicação:' %>
+       <% end %>
+       <%= f.button :submit,'Cadastrar' %>
+     <% end %>
 </div>
