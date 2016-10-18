@@ -17,3 +17,4 @@
 //= require mvpready-core
 //= require mvpready-landing
 //= require_tree .
+//= require jquery_nested_form
