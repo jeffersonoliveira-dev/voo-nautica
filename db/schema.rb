@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017174351) do
+ActiveRecord::Schema.define(version: 20161018155931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,10 @@ ActiveRecord::Schema.define(version: 20161017174351) do
     t.string   "cep"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "student_id"
   end
+
+  add_index "addresses", ["student_id"], name: "index_addresses_on_student_id", using: :btree
 
   create_table "availabilities", force: :cascade do |t|
     t.date     "date1"
@@ -32,28 +35,40 @@ ActiveRecord::Schema.define(version: 20161017174351) do
     t.date     "date4"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "student_id"
   end
+
+  add_index "availabilities", ["student_id"], name: "index_availabilities_on_student_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.decimal  "price",      precision: 8, scale: 2
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.integer  "student_id"
   end
+
+  add_index "courses", ["student_id"], name: "index_courses_on_student_id", using: :btree
 
   create_table "phones", force: :cascade do |t|
     t.string   "number"
     t.integer  "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "student_id"
   end
+
+  add_index "phones", ["student_id"], name: "index_phones_on_student_id", using: :btree
 
   create_table "referrers", force: :cascade do |t|
     t.integer  "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
+    t.integer  "student_id"
   end
+
+  add_index "referrers", ["student_id"], name: "index_referrers_on_student_id", using: :btree
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
@@ -85,4 +100,9 @@ ActiveRecord::Schema.define(version: 20161017174351) do
     t.datetime "proof_of_address_updated_at"
   end
 
+  add_foreign_key "addresses", "students"
+  add_foreign_key "availabilities", "students"
+  add_foreign_key "courses", "students"
+  add_foreign_key "phones", "students"
+  add_foreign_key "referrers", "students"
 end
