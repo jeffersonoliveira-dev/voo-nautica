@@ -8,14 +8,12 @@ class StudentsController < ApplicationController
     @student.build_address
     @student.phones.build
     @student.build_availability
-    @student.courses.build
-    @student.build_referrer
   end
 
   def create
     @student = Student.new(student_params)
     if @student.save
-      #  flash[:success] = "Cadastro criado com sucesso !"
+      flash[:success] = 'Cadastro criado com sucesso !'
       redirect_to '/students'
     else
       render 'new'
@@ -43,12 +41,10 @@ class StudentsController < ApplicationController
           .permit(:name, :date_birth, :rg, :cpf,
                   :date_emission, :organ_emitter, :nationality, :civil_status,
                   :father_name, :mother_name, :email, :profession, :scholarity,
-                  :vessel, :proof_of_address, :document_photo, :city,
-                  :vessel_experience, :payment_type, :cnh,
+                  :vessel, :proof_of_address, :document_photo, :city, :cnh,
+                  :vessel_experience, :payment_type, :course, :referrer,
                   address_attributes: [:street, :district, :city, :cep],
                   availability_attributes: [:date1, :date2, :date3, :date4],
-                  courses_attributes: [:name, :price, :course_type],
-                  phones_attributes: [:id, :number, :phone_type, :_destroy],
-                  referrer_attributes: [ :referrer_type , :name])
+                  phones_attributes: [:id, :number, :phone_type, :_destroy])
   end
 end

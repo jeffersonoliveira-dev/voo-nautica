@@ -73,7 +73,7 @@
     <%= f.simple_fields_for :phones do |p| %>
     <div class="row">
       <div class="col-md-5">
-        <%= p.input :phone_type, collection: Phone.phone_types.keys, label: 'Contato:'%>
+        <%= p.input :phone_type, collection: Phone.phone_types.keys, label: 'Tipo:'%>
       </div>
       <div class="col-md-5">
         <%= p.input :number, label: 'Número:', placeholder: '(00)0000-0000' %>
@@ -100,7 +100,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <%= f.input :course, collection: Course.course_types.keys, as: :radio_buttons, label: 'Selecione o curso desejado:', label_method: :humanize %>
+        <%= f.input :course, collection: Student.courses.keys, label: 'Selecione o curso desejado:', label_method: :humanize %>
       </div>
     </div>
 
@@ -125,9 +125,15 @@
 
     <div class="row">
       <div class="col-md-6">
+        <% if @student.proof_of_address.exists? %>
+          <%= image_tag @student.proof_of_address.url %><br/>
+        <% end %>
         <%= f.input :proof_of_address, as: :file, label: 'Foto do comprovante de residência:' %>
       </div>
       <div class="col-md-6">
+        <% if @student.document_photo.exists? %>
+          <%= image_tag @student.document_photo.url %><br/>
+        <% end %>
         <%= f.input :document_photo, as: :file, label: 'Foto dos documentos:' %>
       </div>
     </div>
@@ -139,10 +145,10 @@
 
     <h2>Como conheçeu a Voo Nautica?</h2>
 
-    <%= f.simple_fields_for :referrer do |r| %>
-      <%= r.input :referrer_type, collection: Referrer.referrer_types.keys, as: :radio_buttons, label: 'Indicação:', label_method: :humanize %>
-    <% end %>
+    <%= f.input :referrer, collection: Student.referrers.keys, label: 'Indicação:', label_method: :humanize %>
 
-    <%= f.button :submit, 'Finalizar Cadastro' %>
+    <div class="row">
+      <%= f.button :submit, 'Finalizar Cadastro' %>
+    </div>
   </div>
 <% end %>
