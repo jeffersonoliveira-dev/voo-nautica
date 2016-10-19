@@ -15,42 +15,21 @@
       <nav class="collapse navbar-collapse" role="navigation">
         <ul class="nav navbar-nav navbar-right mainnav-menu">
           <li class="active">
-            <a href="./index.html">Home</a>
+            <%= link_to 'Inicio', root_path %>
           </li>
           <li class="">
-            <a href="./page-features.html">Features</a>
+            <%= link_to 'Cadastre-se', new_student_path %>
           </li>
           <li class="">
-            <a href="./page-faq.html">FAQ</a>
-          </li>
-          <li class="">
-            <a href="./page-pricing.html">Pricing</a>
-          </li>
-          <li class="">
-            <a href="./page-contact.html">Contact</a>
-          </li>
-          <li>
-            <a href="../admin/account-login-social.html">Login</a>
+            <%= link_to 'Login', root_path %>
           </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-social navbar-left">
           <li>
-            <a href="javascript:;" class="ui-tooltip" title="Facebook" data-placement="bottom">
+            <a href="https://www.facebook.com/vooescolanautica" class="ui-tooltip" title="Facebook" data-placement="bottom" target="_blank">
               <i class="fa fa-facebook"></i>
               <span class="navbar-social-label">Facebook</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;" class="ui-tooltip" title="Twitter" data-placement="bottom">
-              <i class="fa fa-twitter"></i>
-              <span class="navbar-social-label">Twitter</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;" class="ui-tooltip" title="Google+" data-placement="bottom">
-              <i class="fa fa-google-plus"></i>
-              <span class="navbar-social-label">Google+</span>
             </a>
           </li>
         </ul>
@@ -65,23 +44,24 @@
           <div class="item active">
             <div class="row">
               <div class="col-md-6 masthead-text animated fadeInDownBig">
-                <h1 class="masthead-title">Don't feel limited to color schemes provided.</h1>
+                <h1 class="masthead-title">Curso de Motonauta</h1>
                 <p class="masthead-">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi ut aliquip ex ea commodo consequat.
+                  Curso destinado a maiores de 18 anos, que querem conduzir moto aquática (Jet Ski) em águas abrigadas (baias, rios, lagos, enseadas, etc...)
+                  O limite de navegação é determinado pelas Capitanias, Agencias e Delegacias.
                 </p>
                 <br>
                 <div class="masthead-actions">
                   <a href="./page-features.html" class="btn btn-transparent btn-jumbo">
-                  Learn More
+                  Saiba Mais
                   </a>
                   <a href="../admin/account-signup.html" class="btn btn-primary btn-jumbo">
-                  Create an Account
+                  Cadastre-se
                   </a>
                 </div> <!-- /.masthead-actions -->
               </div> <!-- /.masthead-text -->
 
               <div class="col-md-6 masthead-img animated fadeInUpBig">
-                <%= image_tag('mobile.png', class: 'img-responsive') %>
+                <%= image_tag('motonautax.png', class: 'img-responsive') %>
               </div> <!-- /.masthead-img -->
             </div> <!-- /.row -->
           </div> <!-- /.item -->
@@ -147,7 +127,7 @@
                 </div> <!-- /.masthead-actions -->
               </div> <!-- /.masthead-text -->
               <div class="col-md-6 masthead-img animated pulse">
-                <%= image_tag('ipad.png', class: 'img-responsive') %>
+                <%= image_tag('lancha.png', class: 'img-responsive') %>
               </div> <!-- /.masthead-img -->
             </div> <!-- /.row -->
           </div> <!-- /.item -->
