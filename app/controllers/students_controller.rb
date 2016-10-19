@@ -39,14 +39,16 @@ class StudentsController < ApplicationController
   private
 
   def student_params
-    params.require(:student).permit(:name, :date_birth, :rg, :cpf,
-                                    :date_emission, :organ_emitter, :nationality, :civil_status, :father_name,
-                                    :mother_name, :email, :profession, :scholarity, :vessel, :proof_of_address,
-                                    :document_photo, :city, :vessel_experience, :payment_type, :cnh,
-                                    address_attributes: [:street, :district, :city, :cep],
-                                    availability_attributes: [:date1, :date2, :date3, :date4],
-                                    courses_attributes: [:name, :price], phones_attributes: [:id, :number,
-                                                                                             :type, :_destroy],
-                                    referrer_attributes: [:type, :name])
+    params.require(:student)
+          .permit(:name, :date_birth, :rg, :cpf,
+                  :date_emission, :organ_emitter, :nationality, :civil_status,
+                  :father_name, :mother_name, :email, :profession, :scholarity,
+                  :vessel, :proof_of_address, :document_photo, :city,
+                  :vessel_experience, :payment_type, :cnh,
+                  address_attributes: [:street, :district, :city, :cep],
+                  availability_attributes: [:date1, :date2, :date3, :date4],
+                  courses_attributes: [:name, :price, :course_type],
+                  phones_attributes: [:id, :number, :phone_type, :_destroy],
+                  referrer_attributes: [ :referrer_type , :name])
   end
 end

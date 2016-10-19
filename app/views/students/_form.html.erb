@@ -82,16 +82,19 @@
 
     <!-- formulário para o telefone -->
 
-    <%= f.fields_for :phones do |p| %>
+    <div >
+        <div >
+            <%= f.fields_for :phones, @student.phones do |p| %>
             <%= p.input :phone_type, collection: Phone.phone_types.keys,
-        label: 'Contato:'%>
+          label: 'Contato:'%>
             <%= p.input :number, label: 'Número:', placeholder: '(00)0000-0000' %>
-        <%= p.link_to_remove "Remover", class: "form-control btn btn-danger" %>
-    <% end %>
-    <%= f.link_to_add "Add Telefone", :phones, class: "btn btn-primary" %>
+            <%= p.link_to_remove "Remover", class: "form-control btn btn-danger" %>
+            <% end %>
+        </div>
+        <%= f.link_to_add "Add Telefone", :phones, class: "form-control btn btn-primary" %>
+    </div>
 
     <!-- continuação do formulário de estudante -->
-
 
     <h2>
         Informação complementar
@@ -105,7 +108,8 @@
     <h2>Selecione o curso desejado</h2>
     <%= f.simple_fields_for :courses do |c| %>
     <%= c.input :course_type, collection: Course.course_types.keys,
-          as: :radio_buttons, label: 'Selecione o curso desejado:' %>
+          as: :radio_buttons, label: 'Selecione o curso desejado:',
+          label_method: :humanize %>
     <% end %>
 
     <!-- formulário para as datas de aula prática -->
@@ -147,11 +151,11 @@
         </div>
     </div>
     <%= f.input :payment_type, collection: Student.payment_types.keys,
-       label: 'Tipo de pagamento:' %>
+       label: 'Tipo de pagamento:', label_method: :humanize %>
     <!-- formulário de Referrer -->
     <%= f.simple_fields_for :referrer do |r| %>
-    <%= r.input :referral_type, collection: Referrer.referral_types.keys,
-          as: :check_boxes, label: 'Indicação:' %>
+    <%= r.input :referrer_type, collection: Referrer.referrer_types.keys,
+          as: :radio_buttons, label: 'Indicação:', label_method: :humanize %>
     <% end %>
     <%= f.button :submit,'Cadastrar' %>
     <% end %>
