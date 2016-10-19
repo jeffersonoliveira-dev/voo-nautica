@@ -1,6 +1,5 @@
 class Referrer < ActiveRecord::Base
-  validates :type, presence: true
+  validates :referrer_type, presence: true
   belongs_to :student
-  enum referral_type: { ex_student: 0, friend: 1, family: 2, olx: 3,
-     facebook: 4, marketing: 5, cfb: 6, other: 7 }
+  enum referrer_type: { ex_aluno: 0, amigo: 1, familia: 2, olx: 3, facebook: 4, propaganda_de_rua: 5, cfb: 6, outro: 7 }
 end

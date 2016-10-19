@@ -1,6 +1,6 @@
 class Phone < ActiveRecord::Base
   belongs_to :student
-  validates :number, :type, presence: true
+  validates :number, :phone_type, presence: true
 
-  enum phone_type: { phone: 0, cel: 1}
+  enum phone_type: { telefone: 0, celular: 1 }
 end

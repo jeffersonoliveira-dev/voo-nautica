@@ -14,8 +14,8 @@ class Student < ActiveRecord::Base
   has_many :courses
   has_one :availability
   has_one :referrer
-  enum payment_type: { credit_card: 0, bank_slip: 1 }
+  enum payment_type: { cartao_de_credito: 0, boleto_bancario: 1 }
 
   accepts_nested_attributes_for :phones, :address, :courses, :availability,
-                                :referrer
+                                :referrer, allow_destroy: true
 end

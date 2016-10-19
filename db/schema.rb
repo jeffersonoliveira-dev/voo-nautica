@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018155931) do
+ActiveRecord::Schema.define(version: 20161019043006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,17 +42,18 @@ ActiveRecord::Schema.define(version: 20161018155931) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
-    t.decimal  "price",      precision: 8, scale: 2
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.decimal  "price",       precision: 8, scale: 2
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "student_id"
+    t.integer  "course_type"
   end
 
   add_index "courses", ["student_id"], name: "index_courses_on_student_id", using: :btree
 
   create_table "phones", force: :cascade do |t|
     t.string   "number"
-    t.integer  "type"
+    t.integer  "phone_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "student_id"
@@ -61,9 +62,9 @@ ActiveRecord::Schema.define(version: 20161018155931) do
   add_index "phones", ["student_id"], name: "index_phones_on_student_id", using: :btree
 
   create_table "referrers", force: :cascade do |t|
-    t.integer  "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "referrer_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "name"
     t.integer  "student_id"
   end
