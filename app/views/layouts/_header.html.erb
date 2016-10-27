@@ -1,9 +1,9 @@
 <header class="navbar navbar-inverse" role="banner">
   <div class="container">
     <div class="navbar-header">
-      <a href="./" class="navbar-brand navbar-brand-img">
-        <%= image_tag('logo.png') %>
-      </a>
+      <%= link_to root_path, { class: 'navbar-brand navbar-brand-img', style: 'padding-top: 18px'} do %>
+        <i class="fa fa-anchor" aria-hidden="true"></i> Voo Nautica
+      <% end %>
 
       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -13,14 +13,11 @@
 
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav navbar-right mainnav-menu">
-        <li class="active">
+        <li class="<%= active_controller?('welcome') %>">
           <%= link_to 'Inicio', root_path %>
         </li>
-        <li class="">
+        <li class="<%= active_controller?('students') %>">
           <%= link_to 'Cadastre-se', new_student_path %>
-        </li>
-        <li class="">
-          <%= link_to 'Login', root_path %>
         </li>
       </ul>
 
