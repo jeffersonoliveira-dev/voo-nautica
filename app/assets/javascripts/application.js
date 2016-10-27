@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap.min
+//= require jquery_nested_form
 //= require mvpready-core
 //= require mvpready-landing
 //= require_tree .
