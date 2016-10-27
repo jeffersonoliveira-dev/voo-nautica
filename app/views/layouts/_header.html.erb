@@ -1,9 +1,9 @@
 <header class="navbar navbar-inverse" role="banner">
   <div class="container">
     <div class="navbar-header">
-      <a href="./" class="navbar-brand navbar-brand-img">
-        <%= image_tag('logo.png') %>
-      </a>
+      <%= link_to root_path, { class: 'navbar-brand navbar-brand-img', style: 'padding-top: 18px'} do %>
+        <i class="fa fa-anchor" aria-hidden="true"></i> Voo Nautica
+      <% end %>
 
       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -13,43 +13,19 @@
 
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav navbar-right mainnav-menu">
-        <li class="active">
-          <a href="./index.html">Home</a>
+        <li class="<%= active_controller?('welcome') %>">
+          <%= link_to 'Inicio', root_path %>
         </li>
-        <li class="">
-          <a href="./page-features.html">Features</a>
-        </li>
-        <li class="">
-          <a href="./page-faq.html">FAQ</a>
-        </li>
-        <li class="">
-          <a href="./page-pricing.html">Pricing</a>
-        </li>
-        <li class="">
-          <a href="./page-contact.html">Contact</a>
-        </li>
-        <li>
-          <a href="../admin/account-login-social.html">Login</a>
+        <li class="<%= active_controller?('students') %>">
+          <%= link_to 'Cadastre-se', new_student_path %>
         </li>
       </ul>
 
       <ul class="nav navbar-nav navbar-social navbar-left">
         <li>
-          <a href="javascript:;" class="ui-tooltip" title="Facebook" data-placement="bottom">
+          <a href="https://www.facebook.com/vooescolanautica" class="ui-tooltip" title="Facebook" data-placement="bottom" target="_blank">
             <i class="fa fa-facebook"></i>
             <span class="navbar-social-label">Facebook</span>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:;" class="ui-tooltip" title="Twitter" data-placement="bottom">
-            <i class="fa fa-twitter"></i>
-            <span class="navbar-social-label">Twitter</span>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:;" class="ui-tooltip" title="Google+" data-placement="bottom">
-            <i class="fa fa-google-plus"></i>
-            <span class="navbar-social-label">Google+</span>
           </a>
         </li>
       </ul>
