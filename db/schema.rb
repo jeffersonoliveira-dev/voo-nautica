@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160828000932) do
+ActiveRecord::Schema.define(version: 20161019142259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,10 @@ ActiveRecord::Schema.define(version: 20160828000932) do
     t.string   "cep"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "student_id"
   end
+
+  add_index "addresses", ["student_id"], name: "index_addresses_on_student_id", using: :btree
 
   create_table "availabilities", force: :cascade do |t|
     t.date     "date1"
@@ -32,28 +35,20 @@ ActiveRecord::Schema.define(version: 20160828000932) do
     t.date     "date4"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "student_id"
   end
 
-  create_table "courses", force: :cascade do |t|
-    t.string   "name"
-    t.decimal  "value",      precision: 8, scale: 2
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-  end
+  add_index "availabilities", ["student_id"], name: "index_availabilities_on_student_id", using: :btree
 
   create_table "phones", force: :cascade do |t|
     t.string   "number"
-    t.string   "type"
+    t.integer  "phone_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "student_id"
   end
 
-  create_table "referrers", force: :cascade do |t|
-    t.integer  "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "name"
-  end
+  add_index "phones", ["student_id"], name: "index_phones_on_student_id", using: :btree
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
@@ -72,11 +67,22 @@ ActiveRecord::Schema.define(version: 20160828000932) do
     t.boolean  "vessel"
     t.boolean  "vessel_experience"
     t.integer  "payment_type"
-    t.binary   "document_photo"
-    t.binary   "proof_of_address"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "cnh"
+    t.string   "document_photo_file_name"
+    t.string   "document_photo_content_type"
+    t.integer  "document_photo_file_size"
+    t.datetime "document_photo_updated_at"
+    t.string   "proof_of_address_file_name"
+    t.string   "proof_of_address_content_type"
+    t.integer  "proof_of_address_file_size"
+    t.datetime "proof_of_address_updated_at"
+    t.integer  "course"
+    t.integer  "referrer"
   end
 
+  add_foreign_key "addresses", "students"
+  add_foreign_key "availabilities", "students"
+  add_foreign_key "phones", "students"
 end

@@ -1,6 +1,26 @@
-<ul>
-  <% @students.each do |student| %>
-    <li><%= student.name %></li>
-    <li><%= student.profession %></li>
-  <% end %>
-</ul>
+<% content_for :title, "Voo Nautica - Lista de alunos" %>
+<div class="form-group">
+  <%= link_to("Novo Aluno", new_student_path, class: "btn btn-primary btn-sm") %>
+</div>
+<table class="table table-hover table-inverse">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+    <tr>
+      <td><%= student.name %></td>
+      <td><%= student.email %></td>
+      <td>
+        <%= link_to edit_student_path(student) do %>
+          <i class="fa fa-pencil"></i> Editar
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
