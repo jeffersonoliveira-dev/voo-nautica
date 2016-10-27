@@ -20,4 +20,5 @@
 //= require toastr
 //= require toastr_config
 //= require bootstrap-filestyle
+//= require bootstrap-datepicker
 //= require_tree .

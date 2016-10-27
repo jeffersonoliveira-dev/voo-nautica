@@ -150,16 +150,16 @@
         <%= f.simple_fields_for :availability do |v| %>
           <div class="row">
             <div class="col-md-6">
-              <%= v.input :date1, as: :date, order: [:day, :month, :year], label: '1º:' %>
+              <%= v.input :date1, label: '1º Data:', as: :string, input_html: { class: "datepicker" } %>
             </div>
             <div class="col-md-6">
-              <%= v.input :date2, as: :date, order: [:day, :month, :year], label: '2º:' %>
+              <%= v.input :date2, label: '2º Data:', as: :string, input_html: { class: "datepicker" } %>
             </div>
             <div class="col-md-6">
-              <%= v.input :date3, as: :date, order: [:day, :month, :year], label: '3º:' %>
+              <%= v.input :date3, label: '3º Data:', as: :string, input_html: { class: "datepicker" } %>
             </div>
             <div class="col-md-6">
-              <%= v.input :date4, as: :date,  order: [:day, :month, :year], label: '4º' %>
+              <%= v.input :date4, label: '4º Data:', as: :string, input_html: { class: "datepicker" } %>
             </div>
           </div>
         <% end %>
@@ -184,5 +184,14 @@
 <% end %>
 
 <script type="text/javascript">
-  $(":file").filestyle({buttonText: "Escolha o arquivo", icon: false, placeholder: "Selecione"});
+  $(document).ready(function(){
+    $('.datepicker').datepicker({
+      format: "dd/mm/yyyy",
+      todayBtn: "linked",
+      language: "pt-BR",
+      autoclose: true
+    });
+
+    $(":file").filestyle({buttonText: "Escolha o arquivo", icon: false, placeholder: "Selecione"});
+  });
 </script>
