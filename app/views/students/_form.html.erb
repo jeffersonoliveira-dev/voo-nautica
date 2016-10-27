@@ -68,7 +68,7 @@
             <% if @student.document_photo.exists? %>
               <%= image_tag @student.document_photo.url %><br/>
             <% end %>
-            <%= f.input :document_photo, as: :file, label: 'Foto dos documentos:' %>
+            <%= f.input :document_photo, as: :file, label: 'Foto do documento(CNH, RG, CPF):' %>
           </div>
         </div>
       </div>
@@ -179,6 +179,10 @@
   </div>
 
   <div class="panel text-center">
-    <%= f.button :submit, 'CADASTRAR!', class: "btn btn-success" %>
+    <%= f.button :submit, 'SALVAR', class: "btn btn-success" %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(":file").filestyle({buttonText: "Escolha o arquivo", icon: false, placeholder: "Selecione"});
+</script>

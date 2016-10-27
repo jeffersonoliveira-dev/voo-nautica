@@ -19,4 +19,5 @@
 //= require mvpready-landing
 //= require toastr
 //= require toastr_config
+//= require bootstrap-filestyle
 //= require_tree .
