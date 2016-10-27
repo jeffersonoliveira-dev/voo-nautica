@@ -6,6 +6,8 @@ pt-BR:
     update:
       success: 'Aluno atualizado com sucesso!'
       error: 'Falha ao atualizar o aluno, verifique os campos.'
+    destroy:
+      success: 'Aluno removido com sucesso!'
   will_paginate:
     previous_label: "<"
     next_label: ">"

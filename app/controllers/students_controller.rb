@@ -36,6 +36,13 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
   end
 
+  def destroy
+    @student = Student.find(params[:id])
+    @student.destroy
+    flash[:success] = t('.success')
+    redirect_to students_path
+  end
+
   private
 
   def student_params
