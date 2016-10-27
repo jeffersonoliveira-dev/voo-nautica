@@ -16,7 +16,7 @@ class StudentsController < ApplicationController
       flash[:success] = t('.success')
       redirect_to students_path
     else
-      flash[:danger] = t('.error')
+      flash[:error] = t('.error')
       render :new
     end
   end
@@ -27,7 +27,7 @@ class StudentsController < ApplicationController
       flash[:success] = t('.success')
       redirect_to students_path
     else
-      flash[:danger] = t('.error')
+      flash[:error] = t('.error')
       render :edit
     end
   end

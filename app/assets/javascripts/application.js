@@ -17,4 +17,6 @@
 //= require jquery_nested_form
 //= require mvpready-core
 //= require mvpready-landing
+//= require toastr
+//= require toastr_config
 //= require_tree .

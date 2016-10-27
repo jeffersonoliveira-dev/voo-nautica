@@ -15,6 +15,7 @@
  *= require mvpready-landing-pom
  *= require mvpready-flat
  *= require animate
+ *= require toastr
  *= require_tree .
  *= require_self
  */
