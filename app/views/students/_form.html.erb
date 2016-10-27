@@ -60,13 +60,13 @@
         <div class="row">
           <div class="col-md-6">
             <% if @student.proof_of_address.exists? %>
-              <%= image_tag @student.proof_of_address.url %><br/>
+              <i class="fa fa-file-image-o" aria-hidden="true"></i> <%= link_to @student.proof_of_address_file_name, @student.proof_of_address.url %><br/>
             <% end %>
             <%= f.input :proof_of_address, as: :file, label: 'Foto do comprovante de residência:', class: "file" %>
           </div>
           <div class="col-md-6">
             <% if @student.document_photo.exists? %>
-              <%= image_tag @student.document_photo.url %><br/>
+              <i class="fa fa-file-image-o" aria-hidden="true"></i> <%= link_to @student.document_photo_file_name, @student.document_photo.url %><br/>
             <% end %>
             <%= f.input :document_photo, as: :file, label: 'Foto do documento(CNH, RG, CPF):' %>
           </div>
