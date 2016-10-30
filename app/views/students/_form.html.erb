@@ -20,18 +20,18 @@
           <div class="col-md-3">
             <%= f.input :rg, label: 'RG:' %>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <%= f.input :date_emission, start_year: Date.today.year - 90, order: [:day, :month, :year], label: 'Data de emissão:' %>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-2">
             <%= f.input :organ_emitter, label: 'Orgão emissor:' %>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-4">
             <%= f.input :date_birth, start_year: Date.today.year - 90, order: [:day, :month, :year], label: 'Data de nascimento:' %>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-2">
             <%= f.input :cnh, label: 'CNH:' %>
           </div>
           <div class="col-md-3">
@@ -101,18 +101,18 @@
       <div class="panel-body">
         <%= f.simple_fields_for :phones do |p| %>
           <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3 col-xs-3">
               <%= p.input :phone_type, collection: Phone.phone_types.keys, label: 'Tipo:'%>
             </div>
-            <div class="col-md-2 col-xs-2">
+            <div class="col-md-6 col-xs-6">
               <%= p.input :number, label: 'Número:', placeholder: '(00)0000-0000' %>
             </div>
-            <div class="col-md-1 col-xs-1 ">
+            <div class="col-md-3 col-xs-3 ">
               <%= p.link_to_remove "X", class: "form-control btn btn-danger" %>
             </div>
           </div>
         <% end %>
-        <%= f.link_to_add "Adicionar Telefone", :phones, class: "btn btn-info" %>
+        <%= f.link_to_add "Adicionar Telefone", :phones, class: "btn btn-info col-md-2 col-md-offset-5 col-xs-5 col-xs-offset-3" %>
       </div>
     </div>
 
