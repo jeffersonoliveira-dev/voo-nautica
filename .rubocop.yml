@@ -8,6 +8,7 @@ AllCops:
     - log/**/*
     - lib/capistrano/**/*
     - config/initializers/simple_form_bootstrap.rb
+    - config/initializers/devise.rb
     - spec/rails_helper.rb
 
 Rails:
