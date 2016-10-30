@@ -15,6 +15,8 @@
  *= require mvpready-landing-pom
  *= require mvpready-flat
  *= require animate
+ *= require toastr
+ *= require bootstrap-datepicker3
  *= require_tree .
  *= require_self
  */

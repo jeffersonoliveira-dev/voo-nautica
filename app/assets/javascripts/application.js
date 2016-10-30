@@ -17,4 +17,8 @@
 //= require jquery_nested_form
 //= require mvpready-core
 //= require mvpready-landing
+//= require toastr
+//= require toastr_config
+//= require bootstrap-filestyle
+//= require bootstrap-datepicker
 //= require_tree .

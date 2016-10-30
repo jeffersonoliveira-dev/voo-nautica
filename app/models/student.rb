@@ -16,7 +16,7 @@ class Student < ActiveRecord::Base
                                          reject_if: :all_blank
   has_one :address, dependent: :destroy
   accepts_nested_attributes_for :address
-  has_one :availability
+  has_one :availability, dependent: :destroy
   accepts_nested_attributes_for :availability
 
   enum payment_type: { cartao_de_credito: 0, boleto_bancario: 1 }

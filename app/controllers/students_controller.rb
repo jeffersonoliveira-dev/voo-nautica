@@ -13,25 +13,34 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     if @student.save
-      flash[:success] = 'Cadastro criado com sucesso !'
-      redirect_to '/students'
+      flash[:success] = t('.success')
+      redirect_to students_path
     else
-      render 'new'
+      flash[:error] = t('.error')
+      render :new
     end
   end
 
   def update
     @student = Student.find(params[:id])
     if @student.update_attributes(student_params)
-      flash[:sucess] = 'Cadastro atualizado com sucesso !'
-      redirect_to '/students'
+      flash[:success] = t('.success')
+      redirect_to students_path
     else
-      render 'edit'
+      flash[:error] = t('.error')
+      render :edit
     end
   end
 
   def edit
     @student = Student.find(params[:id])
+  end
+
+  def destroy
+    @student = Student.find(params[:id])
+    @student.destroy
+    flash[:success] = t('.success')
+    redirect_to students_path
   end
 
   private
