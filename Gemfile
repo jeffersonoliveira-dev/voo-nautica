@@ -29,6 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # simple form
 gem 'simple_form'
 
+gem 'devise'
 # nested form
 gem 'nested_form'
 
