@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  before_action :authenticate_admin!, except: [:new]
   def index
     @students = Student.order(:name)
   end
