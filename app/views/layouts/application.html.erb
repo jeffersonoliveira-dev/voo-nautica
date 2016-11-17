@@ -8,8 +8,12 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <% if notice %>
+  <% flash[:success] = t( notice )  %>
+  <% end %>
+  <% if alert %>
+  <% flash[:error] = t( alert ) %>
+  <% end %>
   <%= yield %>
   <%= render 'layouts/footer' %>
   <%= render 'layouts/toast' %>
