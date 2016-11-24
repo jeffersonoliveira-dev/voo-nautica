@@ -69,3 +69,5 @@ group :development do
   # Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+ruby "2.3.1"
