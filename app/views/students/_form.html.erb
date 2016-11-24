@@ -1,199 +1,201 @@
-<%= simple_nested_form_for @student, defaults: { required: false } do |f| %>
-  <div class="container">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h2>DADOS PESSOAIS</h2>
-      </div>
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-md-7">
-            <%= f.input :name, label: 'Nome:' %>
-          </div>
-          <div class="col-md-5">
-            <%= f.input :email, label: 'Email:'%>
-          </div>
+<div class="form">
+  <%= simple_nested_form_for @student, defaults: { required: false } do |f| %>
+    <div class="container">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2>DADOS PESSOAIS</h2>
         </div>
-        <div class="row">
-          <div class="col-md-3">
-            <%= f.input :cpf, label: 'CPF:' %>
-          </div>
-          <div class="col-md-3">
-            <%= f.input :rg, label: 'RG:' %>
-          </div>
-          <div class="col-md-4">
-            <%= f.input :date_emission, start_year: Date.today.year - 90, order: [:day, :month, :year], label: 'Data de emissão:' %>
-          </div>
-          <div class="col-md-2">
-            <%= f.input :organ_emitter, label: 'Orgão emissor:' %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <%= f.input :date_birth, start_year: Date.today.year - 90, order: [:day, :month, :year], label: 'Data de nascimento:' %>
-          </div>
-          <div class="col-md-2">
-            <%= f.input :cnh, label: 'CNH:' %>
-          </div>
-          <div class="col-md-3">
-            <%= f.input :nationality, label: 'Nacionalidade:' %>
-          </div>
-          <div class="col-md-3">
-            <%= f.input :civil_status, label: 'Estado civil:' %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <%= f.input :father_name, label: 'Nome do Pai:'%>
-          </div>
-          <div class="col-md-6">
-            <%= f.input :mother_name, label: 'Nome da Mãe:'%>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <%= f.input :scholarity, label: 'Escolaridade' %>
-          </div>
-          <div class="col-md-6">
-            <%= f.input :profession, label: 'Profissão:' %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <% if @student.proof_of_address.exists? %>
-              <i class="fa fa-file-image-o" aria-hidden="true"></i> <%= link_to @student.proof_of_address_file_name, @student.proof_of_address.url %><br/>
-            <% end %>
-            <%= f.input :proof_of_address, as: :file, label: 'Foto do comprovante de residência:', class: "file" %>
-          </div>
-          <div class="col-md-6">
-            <% if @student.document_photo.exists? %>
-              <i class="fa fa-file-image-o" aria-hidden="true"></i> <%= link_to @student.document_photo_file_name, @student.document_photo.url %><br/>
-            <% end %>
-            <%= f.input :document_photo, as: :file, label: 'Foto do documento(CNH, RG, CPF):' %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h2>ENDEREÇO</h2>
-      </div>
-      <div class="panel-body">
-        <%= f.simple_fields_for :address do |a| %>
-          <%= a.input :street, label: 'Rua:' %>
+        <div class="panel-body">
           <div class="row">
-            <div class="col-md-4">
-              <%= a.input :district, label: 'Bairro:' %>
+            <div class="col-md-7">
+              <%= f.input :name, label: 'Nome:' %>
+            </div>
+            <div class="col-md-5">
+              <%= f.input :email, label: 'Email:'%>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <%= f.input :cpf, label: 'CPF:' %>
+            </div>
+            <div class="col-md-3">
+              <%= f.input :rg, label: 'RG:' %>
             </div>
             <div class="col-md-4">
-              <%= a.input :city, label: 'Cidade:' %>
+              <%= f.input :date_emission, start_year: Date.today.year - 90, order: [:day, :month, :year], label: 'Data de emissão:' %>
             </div>
+            <div class="col-md-2">
+              <%= f.input :organ_emitter, label: 'Orgão emissor:' %>
+            </div>
+          </div>
+          <div class="row">
             <div class="col-md-4">
-              <%= a.input :cep, label: 'CEP:' %>
+              <%= f.input :date_birth, start_year: Date.today.year - 90, order: [:day, :month, :year], label: 'Data de nascimento:' %>
+            </div>
+            <div class="col-md-2">
+              <%= f.input :cnh, label: 'CNH:' %>
+            </div>
+            <div class="col-md-3">
+              <%= f.input :nationality, label: 'Nacionalidade:' %>
+            </div>
+            <div class="col-md-3">
+              <%= f.input :civil_status, label: 'Estado civil:' %>
             </div>
           </div>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="panel panel-default">
-      <div class="panel-heading"><h2>TELEFONES</h2></div>
-      <div class="panel-body">
-        <%= f.simple_fields_for :phones do |p| %>
-          <div class="row">
-            <div class="col-md-3 col-xs-3">
-              <%= p.input :phone_type, collection: Phone.phone_types.keys, label: 'Tipo:'%>
-            </div>
-            <div class="col-md-6 col-xs-6">
-              <%= p.input :number, label: 'Número:', placeholder: '(00)0000-0000' %>
-            </div>
-            <div class="col-md-3 col-xs-3 ">
-              <%= p.link_to_remove "X", class: "form-control btn btn-danger" %>
-            </div>
-          </div>
-        <% end %>
-        <%= f.link_to_add "Adicionar Telefone", :phones, class: "btn btn-info col-md-2 col-md-offset-5 col-xs-5 col-xs-offset-3" %>
-      </div>
-    </div>
-
-    <div class="panel panel-default">
-      <div class="panel-heading"><h2>INFORMAÇÕES COMPLEMENTARES</h2></div>
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-md-6">
-            <%= f.input :vessel, label: 'Possuo embarcação' %>
-          </div>
-          <div class="col-md-6">
-            <%= f.input :vessel_experience, label: 'Possuo expêriencia com navegação'%>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel panel-default">
-      <div class="panel-heading"><h2>CURSO</h2></div>
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-md-6">
-            <%= f.input :course, collection: Student.courses.keys, label: 'Selecione o curso desejado:', label_method: :humanize %>
-          </div>
-          <div class="col-md-6">
-            <%= f.input :payment_type, collection: Student.payment_types.keys, label: 'Tipo de pagamento:', label_method: :humanize %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel panel-default">
-      <div class="panel-heading"><h2>ESCOLHA 04 (QUATRO) DATAS DISPONÍVEIS PARA REALIZAÇÃO DAS AULAS PRÁTICAS</h2></div>
-      <div class="panel-body">
-        <blockquote>
-          <p>Será necessário apenas um dia de aula prática, em seguida o candidato se prepara para o EXAME (Prova
-             teórica). Indique 04 datas, pode ser de segunda à sexta, sábado, domingo ou feriado, a fim de melhor atendê-lo.</p>
-        </blockquote>
-        <%= f.simple_fields_for :availability do |v| %>
           <div class="row">
             <div class="col-md-6">
-              <%= v.input :date1, label: '1º Data:', as: :string, input_html: { class: "datepicker" } %>
+              <%= f.input :father_name, label: 'Nome do Pai:'%>
             </div>
             <div class="col-md-6">
-              <%= v.input :date2, label: '2º Data:', as: :string, input_html: { class: "datepicker" } %>
-            </div>
-            <div class="col-md-6">
-              <%= v.input :date3, label: '3º Data:', as: :string, input_html: { class: "datepicker" } %>
-            </div>
-            <div class="col-md-6">
-              <%= v.input :date4, label: '4º Data:', as: :string, input_html: { class: "datepicker" } %>
+              <%= f.input :mother_name, label: 'Nome da Mãe:'%>
             </div>
           </div>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="panel panel-default">
-      <div class="panel-heading"><h2>COMO CONHECEU A VOO NAUTICA?</h2></div>
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-md-6">
-            <%= f.input :referrer, collection: Student.referrers.keys, label: 'Indicação:', label_method: :humanize %>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.input :scholarity, label: 'Escolaridade' %>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :profession, label: 'Profissão:' %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <% if @student.proof_of_address.exists? %>
+                <i class="fa fa-file-image-o" aria-hidden="true"></i> <%= link_to @student.proof_of_address_file_name, @student.proof_of_address.url %><br/>
+              <% end %>
+              <%= f.input :proof_of_address, as: :file, label: 'Foto do comprovante de residência:', class: "file" %>
+            </div>
+            <div class="col-md-6">
+              <% if @student.document_photo.exists? %>
+                <i class="fa fa-file-image-o" aria-hidden="true"></i> <%= link_to @student.document_photo_file_name, @student.document_photo.url %><br/>
+              <% end %>
+              <%= f.input :document_photo, as: :file, label: 'Foto do documento(CNH, RG, CPF):' %>
+            </div>
           </div>
         </div>
       </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2>ENDEREÇO</h2>
+        </div>
+        <div class="panel-body">
+          <%= f.simple_fields_for :address do |a| %>
+            <%= a.input :street, label: 'Rua:' %>
+            <div class="row">
+              <div class="col-md-4">
+                <%= a.input :district, label: 'Bairro:' %>
+              </div>
+              <div class="col-md-4">
+                <%= a.input :city, label: 'Cidade:' %>
+              </div>
+              <div class="col-md-4">
+                <%= a.input :cep, label: 'CEP:' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading"><h2>TELEFONES</h2></div>
+        <div class="panel-body">
+          <%= f.simple_fields_for :phones do |p| %>
+            <div class="row">
+              <div class="col-md-3 col-xs-3">
+                <%= p.input :phone_type, collection: Phone.phone_types.keys, label: 'Tipo:'%>
+              </div>
+              <div class="col-md-6 col-xs-6">
+                <%= p.input :number, label: 'Número:', placeholder: '(00)0000-0000' %>
+              </div>
+              <div class="col-md-3 col-xs-3 ">
+                <%= p.link_to_remove "X", class: "form-control btn btn-danger" %>
+              </div>
+            </div>
+          <% end %>
+          <%= f.link_to_add "Adicionar Telefone", :phones, class: "btn btn-info col-md-2 col-md-offset-5 col-xs-5 col-xs-offset-3" %>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading"><h2>INFORMAÇÕES COMPLEMENTARES</h2></div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.input :vessel, label: 'Possuo embarcação' %>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :vessel_experience, label: 'Possuo expêriencia com navegação'%>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading"><h2>CURSO</h2></div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.input :course, collection: Student.courses.keys, label: 'Selecione o curso desejado:', label_method: :humanize %>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :payment_type, collection: Student.payment_types.keys, label: 'Tipo de pagamento:', label_method: :humanize %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading"><h2>ESCOLHA 04 (QUATRO) DATAS DISPONÍVEIS PARA REALIZAÇÃO DAS AULAS PRÁTICAS</h2></div>
+        <div class="panel-body">
+          <blockquote>
+            <p>Será necessário apenas um dia de aula prática, em seguida o candidato se prepara para o EXAME (Prova
+              teórica). Indique 04 datas, pode ser de segunda à sexta, sábado, domingo ou feriado, a fim de melhor atendê-lo.</p>
+          </blockquote>
+          <%= f.simple_fields_for :availability do |v| %>
+            <div class="row">
+              <div class="col-md-6">
+                <%= v.input :date1, label: '1º Data:', as: :string, input_html: { class: "datepicker" } %>
+              </div>
+              <div class="col-md-6">
+                <%= v.input :date2, label: '2º Data:', as: :string, input_html: { class: "datepicker" } %>
+              </div>
+              <div class="col-md-6">
+                <%= v.input :date3, label: '3º Data:', as: :string, input_html: { class: "datepicker" } %>
+              </div>
+              <div class="col-md-6">
+                <%= v.input :date4, label: '4º Data:', as: :string, input_html: { class: "datepicker" } %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading"><h2>COMO CONHECEU A VOO NAUTICA?</h2></div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.input :referrer, collection: Student.referrers.keys, label: 'Indicação:', label_method: :humanize %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <blockquote>
+        <p>
+          É importante o preenchimento de todas as informações, a fim de possibilitar o fechamento das turmas e
+          inserção dos dados pessoais no Ofício de comunicado da aula prática junto à Marinha, que deverá ser enviado com até 48h de
+          antecedência, e ainda, estes dados são imprescindíveis para confecção do Atestado de Embarque e da Declaração de Motonauta.
+        </p>
+      </blockquote>
     </div>
 
-    <blockquote>
-      <p>
-        É importante o preenchimento de todas as informações, a fim de possibilitar o fechamento das turmas e
-        inserção dos dados pessoais no Ofício de comunicado da aula prática junto à Marinha, que deverá ser enviado com até 48h de
-        antecedência, e ainda, estes dados são imprescindíveis para confecção do Atestado de Embarque e da Declaração de Motonauta.
-      </p>
-    </blockquote>
-  </div>
-
-  <div class="panel text-center">
-    <%= f.button :submit, 'SALVAR', class: "btn btn-success" %>
-  </div>
-<% end %>
+    <div class="panel text-center">
+      <%= f.button :submit, 'SALVAR', class: "btn btn-success" %>
+    </div>
+  <% end %>
+</div>
 
 <script type="text/javascript">
   $(document).ready(function(){

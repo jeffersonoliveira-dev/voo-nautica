@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= yield(:title) %></title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <%= render 'layouts/header' %>
-  <% if notice %>
-  <% flash[:success] = t( notice )  %>
-  <% end %>
-  <% if alert %>
-  <% flash[:error] = t( alert ) %>
-  <% end %>
-  <%= yield %>
-  <%= render 'layouts/footer' %>
-  <%= render 'layouts/toast' %>
-</body>
+  <head>
+    <title><%= yield(:title) %></title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+    <% if notice %>
+      <% flash[:success] = t( notice )  %>
+    <% end %>
+    <% if alert %>
+      <% flash[:error] = t( alert ) %>
+    <% end %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+    <%= render 'layouts/toast' %>
+  </body>
 </html>
