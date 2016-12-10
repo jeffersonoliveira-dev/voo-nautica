@@ -5,7 +5,7 @@
 
 
 ## To deploy at Heroku:
-> Note: [Check heroku guide](https://devcenter.heroku.com/articles/getting-started-with-ruby#set-up).
+> [Check heroku guide](https://devcenter.heroku.com/articles/getting-started-with-ruby#set-up).
 
 ## Clone Repository:
 ```
