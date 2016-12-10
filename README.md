@@ -1,6 +1,6 @@
 # Voo Náutica
 
- Website built in Ruby on Rails.
+ Webs app built in Ruby on Rails.
 
 
 
