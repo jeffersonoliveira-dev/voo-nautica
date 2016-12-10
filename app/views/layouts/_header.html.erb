@@ -23,6 +23,9 @@
         <li class="<%= active_controller?('students') %>">
           <%= link_to 'Alunos', students_path %>
         </li>
+        <li>
+          <%= link_to('Logout', destroy_admin_session_path, :method => :delete) %>        
+        </li>
         <% else %>
         <li class="<%= active_controller?('students') %>">
           <%= link_to 'Entrar', admin_session_path %>
