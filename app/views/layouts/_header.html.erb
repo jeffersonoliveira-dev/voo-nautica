@@ -1,34 +1,32 @@
-<header class="navbar navbar-inverse" role="banner">
-  <div class="container">
-    <div class="navbar-header">
-      <%= link_to root_path, { class: 'navbar-brand navbar-brand-img', style: 'padding-top: 18px'} do %>
-        <i class="fa fa-anchor" aria-hidden="true"></i> Voo Nautica
-      <% end %>
+<div class="container">
+  <div class="navbar-header">
+    <%= link_to root_path, { class: 'navbar-brand navbar-brand-img', style: 'padding-top: 18px'} do %>
+      <i class="fa fa-anchor" aria-hidden="true"></i> Voo Nautica
+    <% end %>
 
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <i class="fa fa-bars"></i>
-      </button>
-    </div> <!-- /.navbar-header -->
+    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <i class="fa fa-bars"></i>
+    </button>
+  </div> <!-- /.navbar-header -->
 
-    <nav class="collapse navbar-collapse" role="navigation">
-      <ul class="nav navbar-nav navbar-right mainnav-menu">
-        <li class="<%= active_controller?('welcome') %>">
-          <%= link_to 'Inicio', root_path %>
-        </li>
-        <li class="<%= active_controller?('students') %>">
-          <%= link_to 'Cadastre-se', new_student_path %>
-        </li>
-      </ul>
+  <nav class="collapse navbar-collapse" role="navigation">
+    <ul class="nav navbar-nav navbar-right mainnav-menu">
+      <li class="<%= active_controller?('welcome') %>">
+        <%= link_to 'Inicio', root_path %>
+      </li>
+      <li class="<%= active_controller?('students') %>">
+        <%= link_to 'Cadastre-se', new_student_path %>
+      </li>
+    </ul>
 
-      <ul class="nav navbar-nav navbar-social navbar-left">
-        <li>
-          <a href="https://www.facebook.com/vooescolanautica" class="ui-tooltip" title="Facebook" data-placement="bottom" target="_blank">
-            <i class="fa fa-facebook"></i>
-            <span class="navbar-social-label">Facebook</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div> <!-- /.container -->
-</header>
+    <ul class="nav navbar-nav navbar-social navbar-left">
+      <li>
+        <a href="https://www.facebook.com/vooescolanautica" class="ui-tooltip" title="Facebook" data-placement="bottom" target="_blank">
+          <i class="fa fa-facebook"></i>
+          <span class="navbar-social-label">Facebook</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div> <!-- /.container -->

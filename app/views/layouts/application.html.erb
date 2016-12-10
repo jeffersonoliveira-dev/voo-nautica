@@ -7,9 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'layouts/header' %>
-  <%= yield %>
-  <%= render 'layouts/footer' %>
+  <div class="geral">
+    <header class="navbar navbar-inverse" role="banner">
+      <%= render 'layouts/header' %>
+    </header>
+    <div class="core">
+      <%= yield %>
+    </div>
+    <footer class="copyright">
+      <%= render 'layouts/footer' %>
+    </footer>
+  </div>
   <%= render 'layouts/toast' %>
 </body>
 </html>
