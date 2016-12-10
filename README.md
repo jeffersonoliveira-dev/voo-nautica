@@ -1,4 +1,4 @@
-# voo-nautica
+# Voo Náutica
 
  Website built in Ruby on Rails.
 
