@@ -2,11 +2,11 @@
 
  Web app built in Ruby on Rails.
 
-## Clone Repository:
+Clone Repository:
 ```
 git clone https://github.com/Cardbeat/voo-nautica.git.
 ```
-## Install gems with bundler:
+Install gems with bundler:
 
 ```
 cd voo-nautica
