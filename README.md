@@ -1,6 +1,6 @@
 # Voo Náutica
 
- Webs app built in Ruby on Rails.
+ Web app built in Ruby on Rails.
 
 ## Clone Repository:
 ```
