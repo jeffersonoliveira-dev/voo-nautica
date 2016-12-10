@@ -8,6 +8,8 @@ gem 'pg'
 
 gem 'paperclip', '~> 5.0.0'
 
+gem 'rails_12factor', group: :production
+
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -67,3 +69,5 @@ group :development do
   # Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+ruby '2.3.3'
