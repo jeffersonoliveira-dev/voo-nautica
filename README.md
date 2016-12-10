@@ -29,7 +29,7 @@ heroku login
 heroku git:remote -a voo-nautica
 ```
 
- deploy to heroku:
+ Deploy to heroku:
 ```
 git push heroku master
 ```
