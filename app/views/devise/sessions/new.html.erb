@@ -1,5 +1,5 @@
 <% content_for :title, "Entrar" %>
-<div class="login container">
+<div class="container">
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="panel panel-default">
       <div class="panel-heading"><h2> Acessar </h2> </div>
@@ -15,7 +15,6 @@
         </div>
       <% end %>
       <div style="margin-top:15px;">
-        <%= render "devise/shared/links" %>
       </div>
     </div>
   </div>
