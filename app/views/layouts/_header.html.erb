@@ -12,21 +12,21 @@
 
   <nav class="collapse navbar-collapse" role="navigation">
     <ul class="nav navbar-nav navbar-right mainnav-menu">
-      <li class="<%= active_controller?('welcome') %>">
+      <li>
         <%= link_to 'Inicio', root_path %>
       </li>
-      <li class="<%= active_controller?('students') %>">
+      <li>
         <%= link_to 'Cadastre-se', new_student_path %>
       </li>
       <% if admin_signed_in? %>
-      <li class="<%= active_controller?('students') %>">
+      <li>
         <%= link_to 'Alunos', students_path %>
       </li>
       <li>
         <%= link_to('Logout', destroy_admin_session_path, :method => :delete) %>
       </li>
       <% else %>
-      <li class="<%= active_controller?('students') %>">
+      <li>
         <%= link_to 'Entrar', admin_session_path %>
       </li>
       <% end %>
