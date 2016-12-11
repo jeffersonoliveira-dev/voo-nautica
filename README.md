@@ -2,6 +2,8 @@
 
  Web app built in Ruby on Rails.
 
+#Setup:
+
 Clone Repository:
 ```
 git clone https://github.com/Cardbeat/voo-nautica.git.
