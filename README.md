@@ -2,7 +2,7 @@
 
  Web app built in Ruby on Rails.
 
-#Setup:
+##Setup:
 
 Clone Repository:
 ```
