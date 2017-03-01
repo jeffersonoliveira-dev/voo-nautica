@@ -15,9 +15,6 @@
       <li>
         <%= link_to 'Inicio', root_path %>
       </li>
-      <li>
-        <%= link_to 'Cadastre-se', new_student_path %>
-      </li>
       <% if admin_signed_in? %>
       <li>
         <%= link_to 'Alunos', students_path %>
@@ -26,6 +23,9 @@
         <%= link_to('Logout', destroy_admin_session_path, :method => :delete) %>
       </li>
       <% else %>
+      <li>
+        <%= link_to 'Cadastre-se', new_student_path %>
+      </li>
       <li>
         <%= link_to 'Entrar', admin_session_path %>
       </li>

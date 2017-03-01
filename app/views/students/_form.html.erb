@@ -58,6 +58,7 @@
               <%= f.input :profession, label: 'Profissão:' %>
             </div>
           </div>
+          <% if admin_signed_in? %>
           <div class="row">
             <div class="col-md-6">
               <% if @student.proof_of_address.exists? %>
@@ -72,6 +73,7 @@
               <%= f.input :document_photo, as: :file, label: 'Foto do documento(CNH, RG, CPF):' %>
             </div>
           </div>
+          <% end %>
         </div>
       </div>
 

@@ -8,8 +8,8 @@ class Student < ActiveRecord::Base
   validates_attachment :document_photo, :proof_of_address,
                        content_type: { content_type: ['image/jpg',
                                                       'image/jpeg',
-                                                      'image/png'] }
-  validates :proof_of_address, :document_photo, attachment_presence: true
+                                                      'image/png',
+                                                      'application/pdf'] }
 
   has_many :phones, dependent: :destroy
   accepts_nested_attributes_for :phones, allow_destroy: true,

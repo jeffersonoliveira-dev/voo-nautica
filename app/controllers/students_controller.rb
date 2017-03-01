@@ -14,8 +14,7 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     if @student.save
-      flash[:success] = t('.success')
-      redirect_to students_path
+      students_redirect_success
     else
       flash[:error] = t('.error')
       render :new
@@ -45,6 +44,16 @@ class StudentsController < ApplicationController
   end
 
   private
+
+  def students_redirect_success
+    if admin_signed_in?
+      flash[:success] = t('.success')
+      redirect_to students_path
+    else
+      flash[:success] = t('.success-guest')
+      redirect_to root_path
+    end
+  end
 
   def student_params
     params.require(:student)

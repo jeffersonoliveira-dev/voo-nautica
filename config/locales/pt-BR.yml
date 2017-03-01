@@ -1,8 +1,9 @@
 pt-BR:
   students:
     create:
+      success-guest: 'Seu cadastro foi efetuado com sucesso! Entraremos em contato em breve!'
       success: 'Aluno cadastrado com sucesso!'
-      error: 'Falha ao cadastrar o aluno, verifique os campos.'
+      error: 'Falha no cadastro, verifique os campos.'
     update:
       success: 'Aluno atualizado com sucesso!'
       error: 'Falha ao atualizar o aluno, verifique os campos.'
